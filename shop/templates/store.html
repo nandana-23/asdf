@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://www.reliancedigital.in/medias/Samsung-S23-Bank-Offer-Banner-desktop.jpg?context=bWFzdGVyfGltYWdlc3w4MzgwMnxpbWFnZS9qcGVnfGltYWdlcy9oOGUvaDRlLzk5ODkzNzMxNjU1OTguanBnfDY0ZTg2MzYxMTgxOTE4MTJmODFhYTRiYjRhM2FiMzZkYWNkOTQwZWQ1NjYxNjBjYjQ5OGY0YzhkYmI2MGYxYzY" class="d-block w-90" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://s3no.cashify.in/estore/752856453b1542088dc158f197f49a81.jpg?p=es7&s=es" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://d2xamzlzrdbdbn.cloudfront.net/megaimg/86ea95ab-3a85-4354-902b-38f4677bd47023311313.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+    <div class="row">
+        {% for product in products %}
+		<div class="col-lg-4">
+			<img class="thumbnail" src="{{product.image.url}}">
+	        <div class="box-element product">
+				<h6><strong>{{product.name}}</strong></h6>
+				<hr>
+				<a  class="btn btn-outline-dark" href="{% url 'cart' %}">&#x2192; Add to Cart</a>
+				<a class="btn btn-outline-success" href="#">View</a>
+		        <h4 style="display: inline-block; float: right"><strong>${{product.price|floatformat:2}}</strong></h4>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+{% endblock content %}
+
+
